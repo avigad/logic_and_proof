@@ -47,8 +47,8 @@ In the world described by the solution to the puzzle, the first and third statem
 
 Once we have a truth assignment :math:`v` to a set of propositional variables, we can extend it to a *valuation function* :math:`\bar v`, which assigns a value of true or false to every propositional formula that depends only on these variables. The function :math:`\bar v` is defined recursively, which is to say, formulas are evaluated from the bottom up, so that value assigned to a compound formula is determined by the values assigned to its components. Formally, the function is defined as follows:
 
--  :math:`\bar v(\top) = \mathbf{T}`
--  :math:`\bar v(\bot) = \mathbf{F}`
+-  :math:`\bar v(\top) = \mathbf{T}`.
+-  :math:`\bar v(\bot) = \mathbf{F}`.
 -  :math:`\bar v(\ell) = v(\ell)`, where :math:`\ell` is any propositional variable.
 -  :math:`\bar v(\neg A) = \mathbf{T}` if :math:`\bar v(A)` is :math:`\mathbf{F}`, and vice versa.
 -  :math:`\bar v(A \wedge B) = \mathbf{T}` if :math:`\bar v(A)` and :math:`\bar v(B)` are both :math:`\mathbf{T}`, and :math:`\mathbf{F}` otherwise.
@@ -66,10 +66,10 @@ The second sentence is an example of a *counterfactual* implication. It asserts 
 
 Why do we evaluate material implication in this way? Once again, let us consider the true sentence "every natural number that is prime and greater than two is odd." We can interpret this sentence as saying that all of the (infinitely many) sentences in this list are true:
 
--  if 0 is prime and greater than 2, then 0 is odd
--  if 1 is prime and greater than 2, then 1 is odd
--  if 2 is prime and greater than 2, then 2 is odd
--  if 3 is prime and greater than 2, then 3 is odd
+-  If 0 is prime and greater than 2, then 0 is odd.
+-  If 1 is prime and greater than 2, then 1 is odd.
+-  If 2 is prime and greater than 2, then 2 is odd.
+-  If 3 is prime and greater than 2, then 3 is odd.
 -  ...
 
 The first sentence on this list is a lot like our "two heads" example, since both the hypothesis and the conclusion are false. But since it is an instance of a statement that is true in general, we are committed to assigning it the value :math:`\mathbf{T}`. The second sentence is a different: the hypothesis is still false, but here the conclusion is true. Together, these tell us that whenever the hypothesis is false, the conditional statement should be true. The fourth sentence has a true hypothesis and a true conclusion. So from the second and fourth sentences, we see that whenever the conclusion is true, the conditional should be true as well. Finally, it seems clear that the sentence "if 3 is prime and greater than 2, then 3 is even" should *not* be true. This pattern, where the hypothesis is true and the conclusion is false, is the only one for which the conditional will be false.

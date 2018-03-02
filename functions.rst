@@ -179,7 +179,7 @@ If :math:`f` is a function from :math:`X` to :math:`Y` and :math:`A` is a subset
 
 .. math::
 
-   f[A] = \{ y \in Y \mid y = f(x) \; \mbox{for some $x$ in $A$} \}.
+   f[A] = \{ y \in Y \mid y = f(x) \; \mbox{for some $x$ in $A$} \}
 
 In words, :math:`f[A]` is the set of elements of :math:`Y` that are "hit" by elements of :math:`A` under the mapping :math:`f`. Notice that there is an implicit existential quantifier here, so that reasoning about images invariably involves the corresponding rules.
 
@@ -193,7 +193,7 @@ In words, :math:`f[A]` is the set of elements of :math:`Y` that are "hit" by ele
 
 .. math::
 
-   (g \circ f)[A] = g[f[A]].
+   (g \circ f)[A] = g[f[A]]
 
 **Proof.** Suppose :math:`z` is in :math:`(g \circ f)[A]`. Then for some :math:`x \in A`, :math:`z = (g \circ f)(x) = g(f(x))`. By the previous proposition, :math:`f(x)` is in :math:`f[A]`. Again by the previous proposition, :math:`g(f(x))` is in :math:`g[f[A]]`.
 
@@ -209,9 +209,9 @@ There is another important operation on functions, known as the *preimage*. If :
 
 .. math::
 
-   f^{-1}[B] = \{ x \in X \mid f(x) \in B \},
+   f^{-1}[B] = \{ x \in X \mid f(x) \in B \}
 
-that is, the set of elements of :math:`X` that get mapped into :math:`B`. Notice that this makes sense even if :math:`f` does not have an inverse; for a given :math:`y` in :math:`B`, there may be no :math:`x`'s with the property :math:`f(x) \in B`, or there may be many. If :math:`f` has an inverse, :math:`f^{-1}`, then for every :math:`y` in :math:`B` there is exactly one :math:`x \in X` with the property :math:`f(x) \in B`, in which case, :math:`f^{-1}[B]` means the same thing whether you interpret it as the image of :math:`B` under :math:`f^{-1}` or the preimage of :math:`B` under :math:`f`.
+That is, :math:`f^{-1}[B]` the set of elements of :math:`X` that get mapped by :math:`f` into :math:`B`. Notice that this makes sense even if :math:`f` does not have an inverse; for a given :math:`y` in :math:`B`, there may be no :math:`x`'s with the property :math:`f(x) \in B`, or there may be many. If :math:`f` has an inverse, :math:`f^{-1}`, then for every :math:`y` in :math:`B` there is exactly one :math:`x \in X` with the property :math:`f(x) \in B`, in which case, :math:`f^{-1}[B]` means the same thing whether you interpret it as the image of :math:`B` under :math:`f^{-1}` or the preimage of :math:`B` under :math:`f`.
 
 ----
 
@@ -219,7 +219,7 @@ that is, the set of elements of :math:`X` that get mapped into :math:`B`. Notice
 
 .. math::
 
-   (g \circ f)^{-1}[C] = f^{-1}[g^{-1}[C]].
+   (g \circ f)^{-1}[C] = f^{-1}[g^{-1}[C]]
 
 **Proof.** For any :math:`y` in :math:`C`, :math:`y` is in :math:`(g \circ f)^{-1}[C]` if and only if :math:`g(f(y))` is in :math:`C`. This, in turn, happens if and only if :math:`f(y)` is in :math:`g^{-1}[C]`, which in turn happens if and only if :math:`y` is in :math:`f^{-1}[g^{-1}[C]]`.
 

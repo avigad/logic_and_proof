@@ -625,11 +625,7 @@ The language of propositional logic starts with symbols :math:`A`, :math:`B`, :m
 
 is an example of a propositional formula.
 
-When writing expressions in symbolic logic, we will adopt an order of operations which allows us to drop superfluous parentheses. When parsing an expression:
-
--  negation binds most tightly
--  then conjunctions and disjunctions, from right to left
--  and finally implications and bi-implications.
+When writing expressions in symbolic logic, we will adopt an order of operations which allows us to drop superfluous parentheses. When parsing an expression, negation binds most tightly; then conjunctions and disjunctions, from right to left; and finally implications and bi-implications.
 
 So, for example, the expression :math:`\neg A \vee B \to C \wedge D` is understood as :math:`((\neg A) \vee B) \to (C \wedge D)`
 

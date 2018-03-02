@@ -12,31 +12,31 @@ Let us now consider functions in formal terms. Even though we have avoided the u
 
 This principle is a known as *function extensionality*, analogous to the principle of extensionality for sets, discussed in :numref:`sets_in_lean_basics`. Recall that the notation :math:`\forall x \in X \; P(x)` abbreviates :math:`\forall x \; (x \in X \to P(x))`, and :math:`\exists x \in X \; P(x)` abbreviates :math:`\exists x \; (x \in X \wedge P(x))`, thereby relativizing the quantifiers to :math:`X`.
 
-We can avoid set-theoretic notation if we assume we are working in a logical formalism with basic types for :math:`X` and :math:`Y`, so that we can specify that :math:`x` ranges over :math:`X`. In that case, we will write instead
+We can avoid set-theoretic notation if we assume we are working in a logical formalism with basic types for :math:`X` and :math:`Y`, so that we can specify that :math:`x` ranges over :math:`X`. In that case, to indicate the domain of quantification, we will write instead
 
 .. math::
 
    \forall x : X \; (f(x) = g(x) \leftrightarrow f = g)
 
-to indicate that the quantification is over :math:`X`. Henceforth, we will assume that all our variables range over some type, though we will sometimes omit the types in the quantifiers when they can be inferred from context.
+Henceforth, we will assume that all our variables range over some type, though we will sometimes omit the types in the quantifiers when they can be inferred from context.
 
 The function :math:`f` is injective if it satisfies
 
 .. math::
 
-   \forall x_1, x_2 : X \; (f(x_1) = f(x_2) \to x_1 = x_2),
+   \forall x_1, x_2 : X \; (f(x_1) = f(x_2) \to x_1 = x_2)
 
-and :math:`f` is surjective if
+The function :math:`f` is surjective if
 
 .. math::
 
-   \forall y : Y \; \exists x : X \; f(x) = y.
+   \forall y : Y \; \exists x : X \; f(x) = y
 
 If :math:`f : X \to Y` and :math:`g: Y \to X`, :math:`g` is a left inverse to :math:`f` if
 
 .. math::
 
-   \forall x : X \; g(f(x)) = a.
+   \forall x : X \; g(f(x)) = a
 
 Notice that this is a universal statement, and it is equivalent to the statement that :math:`f` is a right inverse to :math:`g`.
 
@@ -51,55 +51,58 @@ Equivalently, we can write
 
 .. math::
 
-   \exists (P(x) \wedge \forall x' \; (P(x') \to x' = x)).
+   \exists (P(x) \wedge \forall x' \; (P(x') \to x' = x))
 
 Assuming :math:`\exists! x \; P(x)`, the following two statements are equivalent:
 
 -  :math:`\exists x \; (P(x) \wedge Q(x))`
 -  :math:`\forall x \; (P(x) \to Q(x))`
 
-and both can be taken to assert that "the :math:`x` satisfying :math:`P` also satisfies :math:`Q`."
+Both can be taken to assert that "the :math:`x` satisfying :math:`P` also satisfies :math:`Q`."
 
-A binary relation :math:`R` on :math:`X` and :math:`Y` is functional if it satisfies
+A binary relation :math:`R` on :math:`X` and :math:`Y` is *functional* if it satisfies
 
 .. math::
 
-   \forall x \; \exists! y \; R(x,y).
+   \forall x \; \exists! y \; R(x,y)
 
 In that case, a logician might use *iota notation*,
+
+
+to define :math:`f(x)` to be equal to the unique :math:`y` satisfying :math:`R(x,y)`:
 
 .. math::
 
    f(x) = \iota y \; R(x, y)
-
-to define :math:`f(x)` to be equal to the unique :math:`y` satisfying :math:`R(x,y)`. If :math:`R` satisfies the weaker property
+   
+Suppose a relation :math:`R` satisfies the weaker property
 
 .. math::
 
-   \forall x \; \exists y \; R(x,y),
+   \forall x \; \exists y \; R(x,y)
 
-a logician might use the *Hilbert epsilon* to define a function
+In this case, a logician might use the *Hilbert epsilon* to define a function
 
 .. math::
 
    f(x) = \varepsilon y \; R(x, y)
 
-to "choose" a value of :math:`y` satisfying :math:`R(x, y)`. As we have noted above, this is an implicit use of the axiom of choice.
+This function "chooses" a value of :math:`y` satisfying :math:`R(x, y)`. As we have noted above, this is an implicit use of the axiom of choice.
 
 Second- and Higher-Order Logic
 ------------------------------
 
-In contrast to first-order logic, where we start with a fixed stock of function and relation symbols, the topics we have been considering in the last few chapters encourage us to consider a more expressive language with variables ranging over functions and relations as well. For example, saying that a function :math:`f : X \to Y` has a left-inverse implicitly involves a quantifying over functions,
+In contrast to first-order logic, where we start with a fixed stock of function and relation symbols, the topics we have been considering in the last few chapters encourage us to consider a more expressive language with variables ranging over functions and relations as well. For example, saying that a function :math:`f : X \to Y` has a left-inverse implicitly involves a quantifying over functions:
 
 .. math::
 
-   \exists g \; \forall x \; g(f(x)) = x.
+   \exists g \; \forall x \; g(f(x)) = x
 
 The theorem that asserts that if any function :math:`f` from :math:`X` to :math:`Y` is injective then it has a left-inverse can be expressed as follows:
 
 .. math::
 
-   \forall x_1, x_2 \; (f(x_1) = f(x_2) \to x_1 = x_2) \to \exists g \; \forall x \; g(f(x)) = x.
+   \forall x_1, x_2 \; (f(x_1) = f(x_2) \to x_1 = x_2) \to \exists g \; \forall x \; g(f(x)) = x
 
 Similarly, saying that two sets :math:`X` and :math:`Y` have a one-to-one correspondence asserts the existence of a function :math:`f : X \to Y` as well as an inverse to :math:`f`. For another example, in :numref:`functions_and_relations` we asserted that every functional relation gives rise to a corresponding function, and vice-versa.
 
